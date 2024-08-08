@@ -166,7 +166,7 @@ $.ajax({
         console.log('Error:', error);
     }
 });
-
+```
 ### 2. How to modify an HTML element style
 You can modify the style of an HTML element dynamically using JavaScript or jQuery. This allows you to change the appearance of elements based on user interactions or other conditions.
 ```html
