@@ -285,6 +285,12 @@ User events like clicks, key presses, and form submissions can be captured and h
 ```html
 <button id="myButton">Click me!</button>
 ```
+## Requirement
+```text
+flask
+SQLAlchemy
+mysqlclient
+```
 ## Bugs
 No known bugs at this time. 
 
