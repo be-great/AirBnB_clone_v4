@@ -14,7 +14,6 @@ $(document).ready(function() {
         }
         // update the h4 tag inside the div Amenities with the list of Amenities checked
         const list = Object.values(selectedAmenities).join(', ');
-        console.log('Amenity List:', list);
         $('.amenities h4').text(list);
     });
 });
