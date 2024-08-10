@@ -16,13 +16,15 @@ $(document).ready(function() {
         const list = Object.values(selectedAmenities).join(', ');
         $('.amenities h4').text(list);
     });
-    $.get('http://0.0.0.0:5001/api/v1/status/', function(data) {
-
-        if (data.status == "OK")
+    $.get('http://localhost:5001/api/v1/status/', function(data) {
+        console.log("data status:", data.status);
+        if (data.status === "OK")
         {
+            console.log("inside ok")
             $('div#api_status').addClass('available');
         }
         else {
+            console.log("inside none ok")
             $('div#api_status').removeClass('available');
         }
     }).fail(function() {

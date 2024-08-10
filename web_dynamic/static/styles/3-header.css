@@ -15,12 +15,12 @@ header .logo {
     border-radius: 50%;
     background-color: #cccccc;
     position: absolute;
-    top: 50%;
+    top: 5%;
     right: 30px;
     transform: translateY(-50%);
 }
 
 .available {
 
-    Background-color: #ff545f;
+    Background-color: #ff545f !important;
 }
