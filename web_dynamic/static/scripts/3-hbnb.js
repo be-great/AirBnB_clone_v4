@@ -30,4 +30,38 @@ $(document).ready(function() {
     }).fail(function() {
         $('div#api_status').removeClass('available');
     });
+    $.ajax({
+        url: 'http://localhost:5001/api/v1/places_search/',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({}),  // Empty dictionary as required
+        success: function(data) {
+            $('section.places').empty();
+            for (let place of data) {
+                let placeAr = `
+                <article>
+                    <div class="title_box">
+                        <h2>${place.name}</h2>
+                        <div class="price_by_night">$${place.price_by_night}</div>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''}</div>
+                        <div class="number_rooms">${place.number_rooms} Bedroom${place.number_rooms !== 1 ? 's' : ''}</div>
+                        <div class="number_bathrooms">${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''}</div>
+                    </div>
+                    <div class="user">
+                        <b>Owner:</b> ${place.user ? `${place.user.first_name} ${place.user.last_name}` : 'N/A'}
+                    </div>
+                    <div class="description">
+                        ${place.description ? place.description : ''}
+                    </div>
+                </article>`;
+                console.log(placeAr);
+                $('section.places').append(placeAr);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error: ", error);
+        }
+    });
 });
